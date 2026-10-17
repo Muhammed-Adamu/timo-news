@@ -1,0 +1,14 @@
+# ============================================================
+# Database connection settings — TEMPLATE
+# ============================================================
+# Copy this file to db.properties and fill in your own values.
+#
+#   db.properties is gitignored and must never be committed.
+#
+# Environment variables DB_URL / DB_USER / DB_PASSWORD override
+# anything set here, which is how you configure a deployed instance.
+# ============================================================
+
+db.url=jdbc:mysql://localhost:3306/timo_news?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+db.user=root
+db.password=YOUR_MYSQL_PASSWORD_HERE

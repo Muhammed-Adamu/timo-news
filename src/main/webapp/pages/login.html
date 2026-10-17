@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TimoNews</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="login">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <div class="auth-page">
+            <div class="auth-card fade-in">
+                <h2><i class="bi bi-box-arrow-in-right"></i> Welcome Back</h2>
+                <p class="subtitle">Log in to your TimoNews account</p>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" placeholder="Enter your username" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-accent">
+                        <i class="bi bi-box-arrow-in-right"></i> Log In
+                    </button>
+                </form>
+                <p class="text-center mt-3" style="font-size:13px;">
+                    Don't have an account? <a href="register.html">Sign up here</a>
+                </p>
+                <p class="text-center mt-2" style="font-size:11px;color:var(--text-muted);">
+                    Demo: admin / admin123
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Categories - TimoNews Admin</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="admin-categories">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <div class="admin-layout">
+            <aside class="admin-sidebar">
+                <div class="admin-logo"><i class="bi bi-speedometer2"></i> Admin Panel</div>
+                <nav class="admin-nav">
+                    <a href="dashboard.html"><i class="bi bi-grid"></i> Dashboard</a>
+                    <a href="news-editor.html"><i class="bi bi-file-text"></i> Manage News</a>
+                    <a href="categories.html" class="active"><i class="bi bi-folder"></i> Categories</a>
+                    <a href="../index.html"><i class="bi bi-box-arrow-up-right"></i> View Site</a>
+                    <a href="#" id="adminLogout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </nav>
+            </aside>
+            <div class="admin-content">
+                <h1 style="font-family:var(--font-heading);margin-bottom:4px;">Category Management</h1>
+                <p style="color:var(--text-secondary);margin-bottom:24px;">Create and manage news categories.</p>
+
+                <div class="card" style="margin-bottom:28px;border:1px solid var(--border-light);border-radius:var(--radius);">
+                    <div class="card-header" style="background:var(--surface);padding:16px 20px;border-bottom:1px solid var(--border-light);"><h5 style="margin:0;"><i class="bi bi-plus-circle"></i> Add / Edit Category</h5></div>
+                    <div class="card-body" style="padding:20px;">
+                        <form id="catForm">
+                            <input type="hidden" id="editCatId">
+                            <div class="row">
+                                <div class="col-md-4 mb-3"><label class="form-label">Name *</label><input type="text" id="editCatName" class="form-control" placeholder="e.g., Technology" required></div>
+                                <div class="col-md-2 mb-3"><label class="form-label">Icon Class</label><input type="text" id="editCatIcon" class="form-control" placeholder="bi-cpu" value="bi-folder"></div>
+                                <div class="col-md-2 mb-3"><label class="form-label">Color</label><input type="color" id="editCatColor" class="form-control form-control-color" value="#6c757d" style="height:38px;"></div>
+                                <div class="col-md-2 mb-3"><label class="form-label">Sort Order</label><input type="number" id="editCatSort" class="form-control" value="0"></div>
+                                <div class="col-md-2 mb-3 d-flex align-items-end"><button type="submit" class="btn btn-accent w-100"><i class="bi bi-check-lg"></i> Save</button></div>
+                            </div>
+                            <div class="mb-0"><label class="form-label">Description</label><input type="text" id="editCatDesc" class="form-control" placeholder="Brief description"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card" style="border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;">
+                    <div class="card-header" style="background:var(--surface);padding:16px 20px;border-bottom:1px solid var(--border-light);"><h5 style="margin:0;">All Categories</h5></div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" style="margin:0;">
+                            <thead style="background:var(--surface-alt);"><tr><th>Icon</th><th>Name</th><th>Slug</th><th>Description</th><th>Articles</th><th>Order</th><th>Actions</th></tr></thead>
+                            <tbody id="categoriesBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.getElementById('adminLogout')?.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await fetch(window.TN.API + '/auth/logout', { method: 'POST', credentials: 'same-origin' });
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

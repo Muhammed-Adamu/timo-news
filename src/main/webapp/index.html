@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimoNews - Your Source for Breaking News</title>
+    <link href="assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="home">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-main" id="heroMain">
+                        <div class="skeleton" style="height:420px;border-radius:var(--radius-lg);"></div>
+                    </div>
+                    <div class="hero-sidebar" id="heroSidebar"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News -->
+        <section class="container" style="padding-bottom: 24px;">
+            <div class="section-header">
+                <h2 class="section-title">Latest News</h2>
+                <a href="pages/search.html" class="view-all">View All <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="news-grid" id="newsContainer">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Two-column layout -->
+        <section class="container">
+            <div class="content-layout">
+                <div class="content-main">
+                    <div id="categorySections"></div>
+                </div>
+                <aside class="content-sidebar">
+                    <div class="sidebar-section">
+                        <h3><i class="bi bi-fire" style="color:var(--accent);"></i> Trending Now</h3>
+                        <ol class="trending-list" id="trendingList" style="list-style:none;padding:0;"></ol>
+                    </div>
+                    <div class="newsletter-cta">
+                        <i class="bi bi-envelope-paper" style="font-size:32px;display:block;margin-bottom:8px;"></i>
+                        <h3>Stay Informed</h3>
+                        <p>Get the latest news delivered to your inbox every morning.</p>
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn btn-accent">Subscribe</button>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3>Categories</h3>
+                        <div id="categoryPills" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

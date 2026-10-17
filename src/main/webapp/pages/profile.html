@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - TimoNews</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="profile">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <section class="container" style="padding:32px 0;">
+            <div class="profile-header fade-in">
+                <div class="profile-avatar-lg" id="profileAvatar">?</div>
+                <div class="profile-info">
+                    <h2 id="profileName"></h2>
+                    <p><i class="bi bi-person"></i> <span id="profileUsername"></span> &nbsp;|&nbsp;
+                       <i class="bi bi-envelope"></i> <span id="profileEmail"></span> &nbsp;|&nbsp;
+                       <span id="profileRole" class="badge bg-primary"></span></p>
+                    <p style="margin-top:4px;" id="profileBio"></p>
+                    <p style="font-size:11px;color:var(--text-muted);">Member since <span id="profileSince"></span></p>
+                </div>
+            </div>
+
+            <ul class="nav nav-tabs profile-tabs" role="tablist">
+                <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tabInfo"><i class="bi bi-pencil"></i> Edit Profile</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tabPassword"><i class="bi bi-lock"></i> Change Password</a></li>
+                <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tabLiked"><i class="bi bi-heart"></i> Liked Articles</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="tabInfo">
+                    <form id="profileForm" class="auth-card fade-in" style="margin:0 auto;">
+                        <h3>Edit Profile</h3>
+                        <div class="mb-3"><label class="form-label">Full Name</label><input type="text" id="editFullName" class="form-control" required></div>
+                        <div class="mb-3"><label class="form-label">Email</label><input type="email" id="editEmail" class="form-control" required></div>
+                        <div class="mb-3"><label class="form-label">Bio</label><textarea id="editBio" class="form-control" rows="3"></textarea></div>
+                        <button type="submit" class="btn btn-accent">Save Changes</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="tabPassword">
+                    <form id="passwordForm" class="auth-card fade-in" style="margin:0 auto;">
+                        <h3>Change Password</h3>
+                        <div class="mb-3"><label class="form-label">Current Password</label><input type="password" id="currentPassword" class="form-control" required></div>
+                        <div class="mb-3"><label class="form-label">New Password</label><input type="password" id="newPassword" class="form-control" minlength="6" required></div>
+                        <div class="mb-3"><label class="form-label">Confirm New Password</label><input type="password" id="confirmPassword" class="form-control" required></div>
+                        <button type="submit" class="btn btn-accent">Update Password</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="tabLiked">
+                    <div class="news-grid" id="likedGrid"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

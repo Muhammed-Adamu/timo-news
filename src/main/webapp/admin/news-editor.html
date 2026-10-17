@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage News - TimoNews Admin</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="admin-news">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <div class="admin-layout">
+            <aside class="admin-sidebar">
+                <div class="admin-logo"><i class="bi bi-speedometer2"></i> Admin Panel</div>
+                <nav class="admin-nav">
+                    <a href="dashboard.html"><i class="bi bi-grid"></i> Dashboard</a>
+                    <a href="news-editor.html" class="active"><i class="bi bi-file-text"></i> Manage News</a>
+                    <a href="categories.html"><i class="bi bi-folder"></i> Categories</a>
+                    <a href="../index.html"><i class="bi bi-box-arrow-up-right"></i> View Site</a>
+                    <a href="#" id="adminLogout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </nav>
+            </aside>
+            <div class="admin-content">
+                <h1 style="font-family:var(--font-heading);margin-bottom:4px;" id="formTitle">Create New Article</h1>
+
+                <div class="card" style="margin-bottom:28px;border:1px solid var(--border-light);border-radius:var(--radius);">
+                    <div class="card-header" style="background:var(--surface);padding:16px 20px;border-bottom:1px solid var(--border-light);"><h5 style="margin:0;">Article Editor</h5></div>
+                    <div class="card-body" style="padding:20px;">
+                        <form id="newsForm">
+                            <input type="hidden" name="id" id="newsId">
+                            <div class="row">
+                                <div class="col-md-8 mb-3"><label class="form-label">Title *</label><input type="text" name="title" id="newsTitle" class="form-control" required></div>
+                                <div class="col-md-4 mb-3"><label class="form-label">Category</label><select name="category_id" id="newsCategory" class="form-select"></select></div>
+                            </div>
+                            <div class="mb-3"><label class="form-label">Summary</label><input type="text" name="summary" id="newsSummary" class="form-control" placeholder="Brief summary for cards and search results"></div>
+                            <div class="mb-3"><label class="form-label">Content * (HTML supported)</label><textarea name="content" id="newsContent" class="form-control" rows="12" required style="font-family:monospace;font-size:13px;"></textarea></div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3"><label class="form-label">Featured Image</label><input type="file" name="image" class="form-control" accept="image/*"></div>
+                                <div class="col-md-3 mb-3"><label class="form-label">Status</label><select name="status" id="newsStatus" class="form-select"><option value="PUBLISHED">Published</option><option value="DRAFT">Draft</option></select></div>
+                                <div class="col-md-5 mb-3"><label class="form-label">Options</label>
+                                    <div class="form-check"><input type="checkbox" name="is_featured" class="form-check-input" id="isFeatured"><label class="form-check-label" for="isFeatured">Featured Article</label></div>
+                                    <div class="form-check"><input type="checkbox" name="is_breaking" class="form-check-input" id="isBreaking"><label class="form-check-label" for="isBreaking">Breaking News</label></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-accent btn-lg"><i class="bi bi-plus-circle"></i> <span id="submitBtnText">Publish Article</span></button>
+                            <a href="news-editor.html" class="btn btn-outline-secondary btn-lg ms-2">Clear</a>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card" style="border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;">
+                    <div class="card-header" style="background:var(--surface);padding:16px 20px;border-bottom:1px solid var(--border-light);"><h5 style="margin:0;">All Articles</h5></div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" style="margin:0;">
+                            <thead style="background:var(--surface-alt);"><tr><th>ID</th><th>Title</th><th>Category</th><th>Status</th><th>Flags</th><th>Views</th><th>Date</th><th>Actions</th></tr></thead>
+                            <tbody id="allNewsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.getElementById('adminLogout')?.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await fetch(window.TN.API + '/auth/logout', { method: 'POST', credentials: 'same-origin' });
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

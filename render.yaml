@@ -1,0 +1,31 @@
+# ============================================================
+# Render Blueprint for TimoNews
+# ============================================================
+# Deploy via: Render Dashboard -> New -> Blueprint -> select this repo.
+#
+# The three database values are marked `sync: false`, which means
+# Render prompts for them instead of reading them from this file.
+# Fill them in from the Aiven console:
+#
+#   DB_URL      jdbc:mysql://<HOST>:<PORT>/<DATABASE>?sslMode=REQUIRED&serverTimezone=UTC&characterEncoding=UTF-8
+#   DB_USER     avnadmin
+#   DB_PASSWORD <from Aiven>
+# ============================================================
+services:
+  - type: web
+    name: timo-news
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      # Tomcat on a 512 MB free instance — leave the JVM some headroom
+      - key: CATALINA_OPTS
+        value: -Xmx384m

@@ -1,0 +1,21 @@
+# ============================================================
+# Never bake local credentials into a deployed image.
+# The app reads DB_URL / DB_USER / DB_PASSWORD from the
+# environment on Render instead.
+# ============================================================
+src/main/resources/db.properties
+
+# Build output
+target/
+
+# VCS / IDE / tooling
+.git/
+.gitignore
+.idea/
+.claude/
+*.iml
+
+# Docs and editor noise
+RUN_GUIDE.md
+Thumbs.db
+.DS_Store

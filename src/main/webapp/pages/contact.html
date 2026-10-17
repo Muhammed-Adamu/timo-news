@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TimoNews</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="contact">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <section class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h2>Get in Touch</h2>
+                    <p style="color:var(--text-secondary);margin-bottom:28px;">Have a news tip, feedback, or just want to say hello? We'd love to hear from you.</p>
+                    <div class="contact-info-item"><i class="bi bi-geo-alt"></i><div><strong>Our Office</strong><p style="margin:0;font-size:13px;color:var(--text-secondary);">123 News Street, Media District<br>New York, NY 10001</p></div></div>
+                    <div class="contact-info-item"><i class="bi bi-envelope"></i><div><strong>Email Us</strong><p style="margin:0;font-size:13px;color:var(--text-secondary);">contact@timonews.com</p></div></div>
+                    <div class="contact-info-item"><i class="bi bi-telephone"></i><div><strong>Call Us</strong><p style="margin:0;font-size:13px;color:var(--text-secondary);">+1 (555) 123-4567</p></div></div>
+                    <div class="contact-info-item"><i class="bi bi-clock"></i><div><strong>Working Hours</strong><p style="margin:0;font-size:13px;color:var(--text-secondary);">Mon - Fri: 9:00 AM - 6:00 PM<br>Weekend: 10:00 AM - 2:00 PM</p></div></div>
+                </div>
+                <div class="contact-form-card fade-in">
+                    <h3 style="font-family:var(--font-heading);margin-bottom:20px;">Send a Message</h3>
+                    <form id="contactFormAjax">
+                        <div class="mb-3"><label class="form-label">Name *</label><input type="text" name="name" class="form-control" placeholder="Your full name" required></div>
+                        <div class="mb-3"><label class="form-label">Email *</label><input type="email" name="email" class="form-control" placeholder="your@email.com" required></div>
+                        <div class="mb-3"><label class="form-label">Subject</label><input type="text" name="subject" class="form-control" placeholder="What's this about?"></div>
+                        <div class="mb-3"><label class="form-label">Message *</label><textarea name="message" class="form-control" placeholder="Tell us what's on your mind..." required></textarea></div>
+                        <button type="submit" class="btn btn-accent" style="width:100%;padding:12px;"><i class="bi bi-send"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <div style="background:var(--surface-alt);border-radius:var(--radius);height:300px;display:flex;align-items:center;justify-content:center;margin-bottom:48px;flex-direction:column;">
+                <i class="bi bi-map" style="font-size:64px;color:var(--text-muted);margin-bottom:12px;"></i>
+                <h4>Our Location</h4>
+                <p style="color:var(--text-secondary);">123 News Street, Media District, New York, NY 10001</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

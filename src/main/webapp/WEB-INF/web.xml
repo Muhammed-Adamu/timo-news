@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>TimoNews - Comprehensive News Website</display-name>
+    <description>Jakarta EE news website with HTML frontend and REST API back-end separation</description>
+
+    <!-- Session Configuration -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+        </cookie-config>
+    </session-config>
+
+    <!-- Welcome File -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pages/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/pages/error.html</location>
+    </error-page>
+
+    <!-- ============================================================
+         ADVANCED SERVLET FEATURE #1: EncodingFilter
+         Sets UTF-8 encoding on all requests/responses
+         ============================================================ -->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.news.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- ============================================================
+         ADVANCED SERVLET FEATURE #2: AuthenticationFilter
+         Protects /admin/* — returns JSON 401 for /api/*, redirects to login for pages
+         ============================================================ -->
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>com.news.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <!-- ============================================================
+         ADVANCED SERVLET FEATURE: SessionListener
+         Tracks active session count via HttpSessionListener
+         ============================================================ -->
+    <listener>
+        <listener-class>com.news.listener.SessionListener</listener-class>
+    </listener>
+
+    <!-- ============================================================
+         ADVANCED SERVLET FEATURE: RequestLoggingListener
+         Logs every HTTP request via ServletRequestListener
+         ============================================================ -->
+    <listener>
+        <listener-class>com.news.listener.RequestLoggingListener</listener-class>
+    </listener>
+
+    <!-- ============================================================
+         REST API Servlet — handles ALL /api/* endpoints
+         Front-end/Back-end Separation: pure JSON responses for the HTML+JS frontend
+         Endpoints: news, comments, likes, search, auth, contact, admin CRUD
+         ============================================================ -->
+    <servlet>
+        <servlet-name>ApiServlet</servlet-name>
+        <servlet-class>com.news.servlet.ApiServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>10485760</max-file-size>
+            <max-request-size>52428800</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApiServlet</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>

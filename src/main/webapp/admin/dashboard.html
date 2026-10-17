@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - TimoNews</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="admin-dashboard">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <div class="admin-layout">
+            <aside class="admin-sidebar">
+                <div class="admin-logo"><i class="bi bi-speedometer2"></i> Admin Panel</div>
+                <nav class="admin-nav">
+                    <a href="dashboard.html" class="active"><i class="bi bi-grid"></i> Dashboard</a>
+                    <a href="news-editor.html"><i class="bi bi-file-text"></i> Manage News</a>
+                    <a href="categories.html"><i class="bi bi-folder"></i> Categories</a>
+                    <a href="../index.html"><i class="bi bi-box-arrow-up-right"></i> View Site</a>
+                    <a href="#" id="adminLogout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                </nav>
+            </aside>
+            <div class="admin-content">
+                <h1 style="font-family:var(--font-heading);margin-bottom:24px;">Dashboard Overview</h1>
+                <div class="stat-cards">
+                    <div class="stat-card"><div class="stat-icon" style="color:#3b82f6;"><i class="bi bi-file-text"></i></div><div class="stat-value" id="statNews">0</div><div class="stat-label">Published Articles</div></div>
+                    <div class="stat-card"><div class="stat-icon" style="color:#10b981;"><i class="bi bi-people"></i></div><div class="stat-value" id="statUsers">0</div><div class="stat-label">Registered Users</div></div>
+                    <div class="stat-card"><div class="stat-icon" style="color:#f59e0b;"><i class="bi bi-eye"></i></div><div class="stat-value" id="statViews">0</div><div class="stat-label">Total Views</div></div>
+                    <div class="stat-card"><div class="stat-icon" style="color:#8b5cf6;"><i class="bi bi-folder"></i></div><div class="stat-value" id="statCategories">0</div><div class="stat-label">Categories</div></div>
+                </div>
+                <div style="display:flex;gap:12px;margin-bottom:28px;">
+                    <a href="news-editor.html" class="btn btn-accent"><i class="bi bi-plus-circle"></i> New Article</a>
+                    <a href="categories.html" class="btn btn-outline-secondary"><i class="bi bi-gear"></i> Manage Categories</a>
+                </div>
+                <div class="card" style="border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;">
+                    <div class="card-header" style="background:var(--surface);border-bottom:1px solid var(--border-light);padding:16px 20px;"><h5 style="margin:0;font-weight:700;">Recent Articles</h5></div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" style="margin:0;">
+                            <thead style="background:var(--surface-alt);"><tr><th>Title</th><th>Category</th><th>Status</th><th>Views</th><th>Date</th><th>Actions</th></tr></thead>
+                            <tbody id="recentNewsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.getElementById('adminLogout')?.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await fetch(window.TN.API + '/auth/logout', { method: 'POST', credentials: 'same-origin' });
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

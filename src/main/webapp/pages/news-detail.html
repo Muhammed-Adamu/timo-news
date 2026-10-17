@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - TimoNews</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="news-detail">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <article class="container" style="padding:32px 0;">
+            <div class="content-layout">
+                <div class="content-main" id="articleContent">
+                    <header class="article-header fade-in">
+                        <a id="articleCategory" class="category-tag" href="#">Loading...</a>
+                        <h1 id="articleTitle">Loading article...</h1>
+                        <div class="article-meta">
+                            <div class="article-author">
+                                <span class="author-avatar" id="authorAvatar">?</span>
+                                <div>
+                                    <strong id="articleAuthor"></strong><br>
+                                    <small id="articleDate"></small>
+                                </div>
+                            </div>
+                            <span><i class="bi bi-eye"></i> <span id="articleViews">0</span> views</span>
+                            <span><i class="bi bi-chat"></i> <span id="commentCount">0</span> comments</span>
+                            <span class="badge bg-danger" id="breakingBadge" style="display:none;">Breaking</span>
+                        </div>
+                    </header>
+                    <img id="featuredImage" alt="" class="article-featured-img fade-in" style="display:none;">
+                    <div class="article-content fade-in" id="articleBody"></div>
+
+                    <div class="article-actions">
+                        <button class="like-btn" id="likeBtn" data-news-id="">
+                            <i class="bi bi-heart"></i> <span id="likeCount">0</span> Likes
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm rounded-pill" onclick="navigator.share&&navigator.share({title:document.title,url:window.location.href})">
+                            <i class="bi bi-share"></i> Share
+                        </button>
+                    </div>
+
+                    <section class="comments-section" id="comments">
+                        <h3><i class="bi bi-chat-square-text"></i> Comments (<span id="commentCount2">0</span>)</h3>
+                        <form class="comment-form" id="commentForm" style="display:none;">
+                            <textarea placeholder="Share your thoughts..." required></textarea>
+                            <button type="submit" class="btn btn-accent"><i class="bi bi-send"></i> Post Comment</button>
+                        </form>
+                        <div class="comments-list" id="commentsList"></div>
+                    </section>
+
+                    <section class="related-section">
+                        <div class="section-header"><h2 class="section-title">Related Articles</h2></div>
+                        <div class="related-grid" id="relatedGrid"></div>
+                    </section>
+                </div>
+
+                <aside class="content-sidebar">
+                    <div class="sidebar-section" style="text-align:center;">
+                        <h3>About Author</h3>
+                        <div class="author-avatar" style="width:64px;height:64px;font-size:24px;margin:0 auto 12px;" id="sidebarAvatar">A</div>
+                        <h5 id="sidebarAuthorName"></h5>
+                        <p style="font-size:12px;color:var(--text-secondary);">Staff Writer at TimoNews</p>
+                    </div>
+                    <div class="newsletter-cta">
+                        <h3>Never Miss a Story</h3>
+                        <p>Subscribe to our newsletter for daily updates.</p>
+                        <input type="email" placeholder="Your email">
+                        <button class="btn btn-accent">Subscribe</button>
+                    </div>
+                </aside>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - TimoNews</title>
+    <link href="../assets/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body data-page="category">
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <section class="container" style="padding:32px 0;">
+            <div class="fade-in" style="text-align:center;padding:40px 20px;background:var(--surface);border-radius:var(--radius-lg);margin-bottom:28px;border:1px solid var(--border-light);box-shadow:var(--shadow-sm);">
+                <i id="catIcon" class="bi-folder" style="font-size:48px;color:#6c757d;display:block;margin-bottom:12px;"></i>
+                <h1 style="font-family:var(--font-heading);font-size:32px;margin-bottom:8px;" id="catName">Category</h1>
+                <p style="color:var(--text-secondary);max-width:500px;margin:0 auto;" id="catDesc"></p>
+                <span id="catCount" class="badge" style="margin-top:12px;font-size:13px;padding:6px 16px;">0 articles</span>
+            </div>
+
+            <div class="news-grid" id="newsContainer">
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+                <div class="skeleton skeleton-card"></div>
+            </div>
+
+            <nav class="pagination-wrapper"><ul class="pagination" id="pagination"></ul></nav>
+
+            <div class="load-more-wrapper">
+                <button class="load-more-btn" id="loadMoreBtn" style="display:none;" data-page="1">
+                    <i class="bi bi-arrow-down-circle"></i> Load More
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/lib/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
