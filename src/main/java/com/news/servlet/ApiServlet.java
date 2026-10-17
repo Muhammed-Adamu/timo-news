@@ -24,7 +24,10 @@ import java.util.regex.Pattern;
 public class ApiServlet extends HttpServlet {
 
     private static final Gson GSON = new GsonBuilder()
-            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+            // XXX emits the UTC offset. Without it the timestamp is ambiguous and the
+            // browser's new Date() reads it as local time, shifting dates by the
+            // viewer's timezone offset.
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX")
             .serializeNulls()
             .disableHtmlEscaping()
             .create();
